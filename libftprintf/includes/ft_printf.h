@@ -6,7 +6,7 @@
 /*   By: csilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 10:07:17 by csilva-f          #+#    #+#             */
-/*   Updated: 2022/11/20 19:21:16 by csilva-f         ###   ########.fr       */
+/*   Updated: 2022/11/21 23:19:31 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@
 # include <unistd.h>
 # include <limits.h>
 
-size_t		ft_print_chr(char c);
-size_t		ft_print_str(char *str);
+int		ft_print_chr(char c);
+int		ft_print_str(char *str);
+int		ft_print_int(int n);
+int		ft_print_uns(unsigned int n);
+int		ft_print_hex(unsigned int n, char c);
 
 #endif

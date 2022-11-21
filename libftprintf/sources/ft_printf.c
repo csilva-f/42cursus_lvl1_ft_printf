@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 11:16:58 by csilva-f          #+#    #+#             */
-/*   Updated: 2022/11/20 17:15:39 by csilva-f         ###   ########.fr       */
+/*   Updated: 2022/11/21 22:12:00 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ static size_t	ft_conversion(va_list ap, char c)
 
 	len = 0;
 	if (c == 'c')
-		return(ft_print_chr(va_arg(ap, int)));
+		len = ft_print_chr(va_arg(ap, int));
 	else if (c == 's')
-		0;
+		len = ft_print_str(va_arg(ap, char *));
 	else if (c == 'p')
-		0;
+		len = 0;
 	else if (c == 'd' || c == 'i')
-		0;
+		len = ft_print_int(va_arg(ap, int));
 	else if (c == 'u')
-		0;
+		len = ft_print_uns(va_arg(ap, unsigned int));
 	else if (c == 'x' || c == 'X')
-		0;
-	return (0);
+		len = 0;
+	return (len);
 }
 
 int	ft_printf(const char *argum, ...)
@@ -37,7 +37,7 @@ int	ft_printf(const char *argum, ...)
 	va_list	ap;
 	size_t	i;
 	size_t	len;
-	
+
 	if (!argum)
 		return (0);
 	va_start(ap, argum);
