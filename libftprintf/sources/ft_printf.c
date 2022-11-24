@@ -6,29 +6,29 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 11:16:58 by csilva-f          #+#    #+#             */
-/*   Updated: 2022/11/21 22:12:00 by csilva-f         ###   ########.fr       */
+/*   Updated: 2022/11/24 22:18:33 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static size_t	ft_conversion(va_list ap, char c)
+int	ft_conversion(va_list ap, char c)
 {
-	size_t	len;
+	int	len;
 
 	len = 0;
 	if (c == 'c')
-		len = ft_print_chr(va_arg(ap, int));
+		len += ft_print_chr(va_arg(ap, int));
 	else if (c == 's')
-		len = ft_print_str(va_arg(ap, char *));
+		len += ft_print_str(va_arg(ap, char *));
 	else if (c == 'p')
-		len = 0;
+		len += ft_print_ptr(va_arg(ap, unsigned long long));
 	else if (c == 'd' || c == 'i')
-		len = ft_print_int(va_arg(ap, int));
+		len += ft_print_int(va_arg(ap, int));
 	else if (c == 'u')
-		len = ft_print_uns(va_arg(ap, unsigned int));
+		len += ft_print_uns(va_arg(ap, unsigned int));
 	else if (c == 'x' || c == 'X')
-		len = 0;
+		ft_print_hex((va_arg(ap, unsigned int)), c, &len);
 	return (len);
 }
 
@@ -48,12 +48,13 @@ int	ft_printf(const char *argum, ...)
 		if (argum[i] == '%')
 		{
 			if (argum[++i] == '%')
-				write(1, &argum[i], 1);
+				len += ft_print_chr(argum[i]);
 			else
-				len = ft_conversion(ap, argum[i]);
+				len += ft_conversion(ap, argum[i]);
 		}
 		else
-			write(1, &argum[i], 1);
+			len += ft_print_chr(argum[i]);
 	}
-	return (0);
+	va_end(ap);
+	return (len);
 }
