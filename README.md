@@ -13,8 +13,7 @@ git clone https://github.com/carolinaaasf/42cursus_lvl1_ft_printf.git
 ### Testing:
 For this project, I ran 1 tester created by other user, which results and repository are the ones below:<br />
 #### [printfTester](https://github.com/Tripouille/printfTester) <br />
-![Alt text](Extras/station_tester_1.png "station_tester_1") <br />
-![Alt text](Extras/station_tester_2.png "station_tester_2") <br />
+![Alt text](Extras/printfTester_mandatory.png "printfTester_mandatory") <br />
 
 --------
 Carolina Figueiredo (carolinaaasf) | csilva-f@student.42porto.com <br />
