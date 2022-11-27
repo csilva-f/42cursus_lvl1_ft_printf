@@ -1,12 +1,14 @@
 # *ft_printf* (42cursus_lvl1)
-## Grade: Not graded yet
+## Grade: 100/100
 ### Subject: [click here](Extras/en.subject.pdf)
 This repository includes all the files and functions from the ft_printf individual project from 42 cursus (level 1). <br />
 The goal of the project is to recreate the printf C function.
 
 ### To run the project:
 1 - Clone the repository:<br />
-`git clone https://github.com/carolinaaasf/42cursus_lvl1_ft_printf.git`
+```
+git clone https://github.com/carolinaaasf/42cursus_lvl1_ft_printf.git
+```
 
 ### Testing:
 For this project, I ran 2 testers created by other users, which results and repositories are the ones below:<br />
