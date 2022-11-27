@@ -12,21 +12,6 @@
 
 #include "ft_printf.h"
 
-int	ft_count_dig(unsigned int n)
-{
-	unsigned int	nbr;
-	int				count;
-
-	nbr = n;
-	count = 1;
-	while (nbr > 0)
-	{
-		count++;
-		nbr /= 10;
-	}
-	return (count);
-}
-
 void	ft_put_ptr(unsigned long long p, int *len)
 {
 	if (p >= 16)
