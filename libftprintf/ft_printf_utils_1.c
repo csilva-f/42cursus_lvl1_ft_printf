@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_print_chr(char c)
 {
@@ -25,7 +25,7 @@ int	ft_print_str(char *str)
 	i = -1;
 	if (!str)
 	{
-		write(1, "(NULL)", 6);
+		write(1, "(null)", 6);
 		return (6);
 	}
 	while (str[++i] != '\0')
@@ -33,13 +33,20 @@ int	ft_print_str(char *str)
 	return (i);
 }
 
-int	ft_print_int(int n)
+int	ft_print_int(unsigned int n, int uns)
 {
 	int		len;
 	char	*str_nbr;
-
-	str_nbr = ft_itoa(n);
-	len = ft_print_str(str_nbr);
+	
+	len = 0;
+	if (uns == 0 && ((int)n < 0))
+	{
+		write (1, "-", 1);
+		len++;
+		n *= -1;
+	}
+	str_nbr = ft_itoa(n, uns);
+	len += ft_print_str(str_nbr);
 	free(str_nbr);
 	return (len);
 }

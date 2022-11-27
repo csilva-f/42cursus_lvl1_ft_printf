@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_conversion(va_list ap, char c)
 {
@@ -24,9 +24,9 @@ int	ft_conversion(va_list ap, char c)
 	else if (c == 'p')
 		len += ft_print_ptr(va_arg(ap, unsigned long long));
 	else if (c == 'd' || c == 'i')
-		len += ft_print_int(va_arg(ap, int));
+		len += ft_print_int(va_arg(ap, long int), 0);
 	else if (c == 'u')
-		len += ft_print_uns(va_arg(ap, unsigned int));
+		len += ft_print_int(va_arg(ap, int), 1);
 	else if (c == 'x' || c == 'X')
 		ft_print_hex((va_arg(ap, unsigned int)), c, &len);
 	return (len);

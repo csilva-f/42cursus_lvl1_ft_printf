@@ -6,7 +6,7 @@
 /*   By: csilva-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 10:07:17 by csilva-f          #+#    #+#             */
-/*   Updated: 2022/11/24 22:34:06 by csilva-f         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:05:24 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 
 int		ft_print_chr(char c);
 int		ft_print_str(char *str);
-int		ft_print_int(int n);
-int		ft_print_uns(unsigned int n);
+char	*ft_itoa(long int n, int uns);
+int	ft_print_int(unsigned int n, int uns);
+//int		ft_print_uns(unsigned int n);
 void	ft_print_hex(unsigned int n, char c, int *len);
 int		ft_print_ptr(unsigned long long p);
 int		ft_conversion(va_list ap, char c);
