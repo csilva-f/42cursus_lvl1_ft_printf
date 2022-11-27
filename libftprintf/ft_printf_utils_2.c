@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_utils_2.c                                 :+:      :+:    :+:   */
+/*   ft_printf_utils_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 21:38:06 by csilva-f          #+#    #+#             */
-/*   Updated: 2022/11/24 22:02:49 by csilva-f         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:51:15 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,34 +25,6 @@ int	ft_count_dig(unsigned int n)
 		nbr /= 10;
 	}
 	return (count);
-}
-
-int	ft_print_uns(unsigned int n)
-{
-	int				len;
-	int				count;
-	char			*str;
-
-	len = 0;
-	if (n == 0)
-		return (write(1, "0", 1));
-	else
-	{
-		count = ft_count_dig(n);
-		str = (char *)malloc((count + 1) * sizeof(char));
-		if (!str)
-			return (0);
-		str[count] = '\0';
-		while (count > 0)
-		{
-			str[count - 1] = (n % 10) + 48;
-			n /= 10;
-			count--;
-		}
-		len = ft_print_str(str);
-		free(str);
-	}
-	return (len);
 }
 
 void	ft_put_ptr(unsigned long long p, int *len)

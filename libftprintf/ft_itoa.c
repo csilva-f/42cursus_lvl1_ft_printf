@@ -6,7 +6,7 @@
 /*   By: csilva-f <csilva-f@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 19:52:53 by csilva-f          #+#    #+#             */
-/*   Updated: 2022/11/07 22:26:34 by csilva-f         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:54:46 by csilva-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,20 @@ static int	ft_count_digits(unsigned int nb, int dig)
 	return (dig);
 }
 
-static char	*ft_fill_str(long int n, char *str, int dig, unsigned int nb, int uns)
+static char	*ft_fill_str(long int n, char *str, int dig, int uns)
 {
-	int	i;
+	int				i;
+	unsigned int	nb;
 
 	i = dig - 1;
+	nb = n;
 	while (i >= 0)
 	{
 		if (n < 0 && i == 0 && uns == 0)
+		{
 			str[i] = '-';
+			n *= -1;
+		}
 		else
 		{
 			str[i] = nb % 10 + '0';
@@ -72,7 +77,7 @@ char	*ft_itoa(long int n, int uns)
 	str = (char *)malloc((dig) * sizeof(char) + 1);
 	if (str == NULL)
 		return (0);
-	return (ft_fill_str(n, str, dig, nb, uns));
+	return (ft_fill_str(n, str, dig, uns));
 }
 
 /*int	main(void)
